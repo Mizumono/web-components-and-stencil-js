@@ -11,6 +11,19 @@ class Modal extends HTMLElement {
                     position: fixed;
                     top: 0;
                     width: 100%;
+                    z-index: 10;
+                }
+
+                #modal {
+                    background: white;
+                    border-radius: 3px;
+                    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
+                    height: 30rem;
+                    left: 25%;
+                    position: fixed;
+                    top: 15vh;
+                    width: 50%;
+                    z-index: 100;
                 }
             </style>
             <div id="backdrop"></div>
