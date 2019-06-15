@@ -8,10 +8,17 @@ class Modal extends HTMLElement {
                     background: rgba(0, 0, 0, 0.75);
                     height: 100vh;
                     left: 0;
+                    opacity: 0;
+                    pointer-events: none;
                     position: fixed;
                     top: 0;
                     width: 100%;
                     z-index: 10;
+                }
+
+                :host([opened]) #backdrop {
+                    opacity: 1;
+                    pointer-events: all;
                 }
 
                 #modal {
@@ -22,10 +29,17 @@ class Modal extends HTMLElement {
                     flex-direction: column;
                     justify-content: space-between;
                     left: 25%;
+                    opacity: 0;
+                    pointer-events: none;
                     position: fixed;
                     top: 15vh;
                     width: 50%;
                     z-index: 100;
+                }
+
+                :host([opened]) #modal {
+                    opacity: 1;
+                    pointer-events: all;
                 }
 
                 header {
@@ -66,6 +80,21 @@ class Modal extends HTMLElement {
             </div>
         `;
     }
+
+    // attributeChangedCallback(name, oldValue, newValue) {
+    //     if (name === 'opened') {
+    //         if (this.hasAttribute('opened')) {
+    //             this.shadowRoot.querySelector('#backdrop').style.opacity = 1;
+    //             this.shadowRoot.querySelector('#backdrop').style.pointerEvents = 'all';
+    //             this.shadowRoot.querySelector('#modal').style.opacity = 1;
+    //             this.shadowRoot.querySelector('#modal').style.pointerEvents = 'all';
+    //         }
+    //     }
+    // }
+
+    // static get observedAttributes() {
+    //     return ['opened'];
+    // }
 }
 
 customElements.define('uc-modal', Modal);
